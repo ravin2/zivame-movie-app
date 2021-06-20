@@ -76,12 +76,11 @@ header h1 {
   position: relative;
   overflow: hidden;
   border-radius: 3px;
-  box-shadow: var(--shadow)
+  box-shadow: var(--shadow);
+  cursor: pointer;
 }
 .movie:hover {
-  box-shadow: 0px 1px 9px 4px #838383;
-  width: 350px;
-
+  box-shadow: 0px 3px 13px 13px #838383;
 }
 
 .movie img {
@@ -170,7 +169,7 @@ header h1 {
   background-color: var(--primary-color);
   width: 285px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
   z-index: 1;
 }
 
