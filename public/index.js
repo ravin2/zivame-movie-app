@@ -2,7 +2,7 @@
 const KEY = "3fd2be6f0c70a2a598f084ddfb75487c";
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${KEY}&page=`;
 const IMG_PATH = "https://image.tmdb.org/t/p/w200";
-const DETAIL_PATH = "https://image.tmdb.org/t/p/w780";
+const DETAIL_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=`;
 
 // getting the access of the DOM elemnets by get element by id
@@ -28,15 +28,14 @@ const getMovies = async (url) => {
   const response = await res.json();
   listData = listData.concat(response.results);
   maxPage = response.total_pages;
-  await showMovies(listData);
+  showMovies(listData);
 };
 getMovies(API_URL + currentPage);
 
 // function to show the movies on the screen which were fetched from the server
-const showMovies = (movies) => {
+const showMovies = async (movies) => {
   // checking if search enable is true than we need to clear the main element
   searchEnable ? (main.innerHTML = '') : '';
-
   // checking if any sorting is applied on the movies if so then dispaly a sorted by div on the screen
   if (sortedBy !== "") {
     const sortElement = document.createElement("div");
@@ -57,7 +56,9 @@ const showMovies = (movies) => {
       movieElement.innerHTML = `
             <img
                 src="${IMG_PATH + poster_path}"
-                alt="${title} "                      />
+                alt="${title} "                     
+                width="300" height="500"
+             />
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(
@@ -184,7 +185,7 @@ search.addEventListener("keyup", (e) => {
     listData = [];
     searchEnable = true;
     // using throtlling in making the api calls while searching to reduce the nmber of api searches
-    throttleFunction(getMovies, SEARCH_API + searchTerm, 800);
+    throttleFunction(getMovies, SEARCH_API + searchTerm, 100);
   } else history.go(0);
 });
 
@@ -203,13 +204,13 @@ window.onclick = function (event) {
   }
 };
 
-function setTheme(themeName) {
+const setTheme = (themeName) => {
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 }
 
 // function to toggle between light and dark theme
-function toggleTheme() {
+const toggleTheme = () => {
     if (localStorage.getItem('theme') === 'theme-dark') {
         setTheme('theme-light');
     } else {
@@ -218,7 +219,7 @@ function toggleTheme() {
 }
 
 // Immediately invoked function to set the theme on initial load
-(function () {
+( () => {
     if (localStorage.getItem('theme') === 'theme-dark') {
         setTheme('theme-dark');
     } else {
