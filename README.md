@@ -1,5 +1,4 @@
 # zivame-movie-app
-# WebApp
 <table>
 <tr>
 <td>
