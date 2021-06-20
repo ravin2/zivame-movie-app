@@ -22,6 +22,11 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 
 images can be seen inside the images folder for mobile view
 
+## improvements
+I will write unit as well as end to end test cases for the app.
+I will start working on the improvement  in which I will be starting with details page, where I will be showing Recommendation ,similar movies.
+Next , I will also make a filter based on catogory and genres.
+
 ### Development
 Want to contribute? Great!
 
