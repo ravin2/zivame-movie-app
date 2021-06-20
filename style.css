@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"); */
 
 
 .theme-light {
@@ -46,12 +46,13 @@ header h1 {
 
 .search {
   background-color: var(--primary-color);;
-  border: 2px solid var(--text-color);
+  border: 1px solid var(--text-color);
   border-radius: 50px;
   font-family: inherit;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   color: var(--text-color);
+  width: -webkit-fill-available;
 }
 
 .search::placeholder {
@@ -85,6 +86,11 @@ header h1 {
 
 .movie img {
   width: 100%;
+}
+.movie-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .movie-info {
@@ -120,7 +126,7 @@ header h1 {
 }
 
 
-@media (max-width: 580px) {
+@media (max-width: 630px) {
   header {
     flex-direction: column;
   }
@@ -128,10 +134,13 @@ header h1 {
     padding: 0.5rem 1rem;
   }
   .main {
-    padding-top: 210px;
+    padding-top: 250px;
   }
   .modal-content {
     margin: 50% auto !important;
+  }
+  .dropbtn {
+    margin-bottom: 10px;
   }
 }
 
@@ -150,9 +159,9 @@ header h1 {
   background-color: var(--primary-color);
   color: var(--text-color);
   padding: 12px;
-  width: 250px;
+  /* width: 250px; */
   font-size: 16px;
-  margin: 17px;
+  /* margin-bottom: 10px; */
   border-radius: 20px;
   border: 1px solid var(--text-color);;
   cursor: pointer;
@@ -167,7 +176,7 @@ header h1 {
   display: none;
   position: absolute;
   background-color: var(--primary-color);
-  width: 285px;
+  /* width: 285px; */
   overflow: auto;
   box-shadow: var(--shadow);
   z-index: 1;
@@ -222,10 +231,6 @@ header h1 {
   display: flex;
 }
 
-.movie-icon {
-  width: 250px;
-  margin-right: 25px;
-}
 .blur {
   filter: blur(5px);
   overflow: none;

@@ -12,6 +12,7 @@
       <h1 onclick="location.reload()" class="label">Zivame Movies</h1>
       <div class="dropdown">
         <button onclick="openSortByDropdown()" class="dropbtn">Sort By</button>
+
         <div id="myDropdown" class="dropdown-content">
           <a onclick="sort('title', 'Name')">Name</a>
           <a onclick="sort('vote_average', 'Ratings')">Ratings</a>
@@ -20,6 +21,7 @@
 
       </div>
       <button onclick="toggleTheme()" class="dropbtn">Switch Theme</button>
+
       <form id="form">
         <input type="text" placeholder="Search" id="search" class="search" />
         <span id="cross-icon" class="cross-icon" onclick="ClearSearch()"

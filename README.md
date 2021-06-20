@@ -1,9 +1,8 @@
 # zivame-movie-app
-# WebApp
 <table>
 <tr>
 <td>
-  A webapp using themoviedb API to display movies list. where you can search for a movie and also sort the movie by name, ratings, and release date. On clicking the movie card it will open a details view where you can read about the summary.
+  A webapp using themoviedb API to display movies list. where you can search for a movie and also sort the movie by name, ratings, and release date. On clicking the movie card it will open a details view where you can read about the summary. This app has one button to switch between dark and light theme in the header
 </td>
 </tr>
 </table>
@@ -13,18 +12,15 @@
 Here is a working live demo :  https://zivame-movie-app.web.app/
 
 
-## Site
-
 ### Landing Page
 Currently it is working.
-
-![](https://ravin2.github.io/zivame-movie-app/images/landing-page.png)
+images can be seen inside the images folder for desktop view
 
 
 ## Mobile support
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
 
-![](https://ravin2.github.io/zivame-movie-app/images/mobile-landing-page.png)
+images can be seen inside the images folder for mobile view
 
 ### Development
 Want to contribute? Great!
@@ -41,9 +37,9 @@ To fix a bug or enhance an existing module, follow these steps:
 
 ### Bug / Feature Request
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/iharsh234/WebApp/issues/new) by including your search query and the expected result.
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/ravin2/zivame-movie-app/issues/new) by including your search query and the expected result.
 
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/ravin2/zivame-movie-app/issues/new). Please include sample queries and their corresponding results.
 
 
 ## Built with 

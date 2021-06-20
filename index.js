@@ -1,7 +1,8 @@
 // Key and api paths stored in the const for future use
 const KEY = "3fd2be6f0c70a2a598f084ddfb75487c";
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${KEY}&page=`;
-const IMG_PATH = "https://image.tmdb.org/t/p/w500";
+const IMG_PATH = "https://image.tmdb.org/t/p/w200";
+const DETAIL_PATH = "https://image.tmdb.org/t/p/w780";
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=`;
 
 // getting the access of the DOM elemnets by get element by id
@@ -19,6 +20,7 @@ let maxPage;
 let listData = [];
 let sortedBy = "";
 let timerId;
+let movieList = []
 
 // function to get the list of movies from the server
 const getMovies = async (url) => {
@@ -31,10 +33,9 @@ const getMovies = async (url) => {
 getMovies(API_URL + currentPage);
 
 // function to show the movies on the screen which were fetched from the server
-const showMovies = (movies) => {
+const showMovies = async (movies) => {
   // checking if search enable is true than we need to clear the main element
   searchEnable ? (main.innerHTML = '') : '';
-
   // checking if any sorting is applied on the movies if so then dispaly a sorted by div on the screen
   if (sortedBy !== "") {
     const sortElement = document.createElement("div");
@@ -44,6 +45,8 @@ const showMovies = (movies) => {
       `;
     main.appendChild(sortElement);
   }
+  const movieListElement = document.createElement("div");
+  movieListElement.classList.add("movie-flex");
   movies.forEach((movie) => {
     // showing each movie tile on the screen
     const { title, poster_path, vote_average, overview, backdrop_path } = movie;
@@ -53,9 +56,7 @@ const showMovies = (movies) => {
       movieElement.innerHTML = `
             <img
                 src="${IMG_PATH + poster_path}"
-                alt="${title}"
-                srcset="${IMG_PATH + poster_path}"
-                            />
+                alt="${title} "                      />
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(
@@ -63,15 +64,16 @@ const showMovies = (movies) => {
                 )}">${vote_average}</span>
             </div>
         `;
-      main.appendChild(movieElement);
+      // main.appendChild(movieElement);
+      movieListElement.appendChild(movieElement)
     }
-
+    main.appendChild(movieListElement);
     // adding click event listener on each element to show the details page
     movieElement.addEventListener("click", () => {
       main.classList.add("blur");
       const movieDetails = document.createElement("div");
       movieDetails.classList.add("modal");
-      movieDetails.style.backgroundImage = `url(${IMG_PATH + backdrop_path})`;
+      movieDetails.style.backgroundImage = `url(${DETAIL_PATH + backdrop_path})`;
       movieDetails.innerHTML = `
                 <div class="modal-content">
                     <span id="model-close"class="close">&times;</span>
@@ -181,7 +183,7 @@ search.addEventListener("keyup", (e) => {
     listData = [];
     searchEnable = true;
     // using throtlling in making the api calls while searching to reduce the nmber of api searches
-    throttleFunction(getMovies, SEARCH_API + searchTerm, 800);
+    throttleFunction(getMovies, SEARCH_API + searchTerm, 100);
   } else history.go(0);
 });
 
