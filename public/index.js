@@ -54,6 +54,8 @@ const showMovies = (movies) => {
             <img
                 src="${IMG_PATH + poster_path}"
                 alt="${title}"
+                srcset="${IMG_PATH + poster_path} 360w, 
+                sizes="20vw"
             />
             <div class="movie-info">
                 <h3>${title}</h3>
